@@ -4,12 +4,12 @@
  * license: http://www.opensource.org/licenses/mit-license.php
  *
  * Only one setting, determines how the information is displayed
- * window.DisplayType = ??;
+ * window.displayType = ??;
  * 1 to console log
  * 2 to localStorage
  * 3 to onscreen div
  */
-window.DisplayType = 1;
+window.displayType = 1;
 
 // simple function for rounding numbers as needed
 function roundNumber (num, dec) {
@@ -36,11 +36,11 @@ function updateSize() {
 	var finale = 'Width: ' + widthEM + 'em/' + widthPX + 'px\n\rHeight: ' + heightEM + 'em/' + heightPX + 'px\n\rPixelDensity: ' + density;
 	
 	// use which method of display was defined earlier 
-	if(window.DisplayType === 1) {
+	if(window.displayType === 1) {
 	  window.console.log(finale);
-	} else if(window.DisplayType === 2) {
+	} else if(window.displayType === 2) {
 		localStorage.setItem('rwd', finale);
-	} else if(window.DisplayType === 3) {
+	} else if(window.displayType === 3) {
 	  // replace the line breaks with <br />, purely optional
 	  finale = finale.replace(/(?:\n\r|\n|\r)/g, '<br />');
 	  // for onscreen display
@@ -59,7 +59,7 @@ function updateSize() {
 			d.style.borderRight = '1px solid black';
 			d.style.borderBottom = '1px solid black';
 			d.innerHTML = finale;
-	  	document.body.insertBefore(d, document.body.childNodes[0]);
+	  		document.body.insertBefore(d, document.body.childNodes[0]);
 	  } else {
 	  // if the div already exists and update the data
 			document.getElementById('rwd').innerHTML = finale;
